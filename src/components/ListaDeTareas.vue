@@ -6,6 +6,7 @@
         <ul>
             <li v-for="(tarea, index) in tareas" :key="index"> <!--con el v-for recorro todo el vector, y con :key asigno a cada valor de la lista un identificador para manejar los datos de forma eficiente -->
                 {{ tarea  }}
+                <button @click="borrarTarea(index)">borrar</button>
             </li> 
         </ul>
     </div>
@@ -22,6 +23,10 @@
  const addTareas = () => {
     tareas.value.push(nuevaTarea.value); //agreamos el ".push" para agregar una tarea nueva al arreglo
     nuevaTarea.value = '';
+ }
+
+ const borrarTarea = (index) => {
+    tareas.value.splice(index, 1); //agreamos el ".splice(indice del dato, borra un solo elemento)" para borrar un elemento del arreglo, 
  }
 
 
