@@ -1,7 +1,11 @@
 <template>
+    <Header :mensaje="texto"></Header><!--al poner : mandamos la variable texto-->
+
     <div class="container">
         <Sidebar></Sidebar>
         <div class="content">
+            <input type="text" v-model="texto">
+            {{ texto }}
             <router-view></router-view> <!-- este muestra el contenido que tenga el componente con un router-link -->
         </div>
     </div>
@@ -9,6 +13,10 @@
 
 <script setup>
 import Sidebar from '@/components/Sidebar.vue';
+import Header from '@/components/Header.vue';
+import { ref } from 'vue';
+
+const texto = ref('');
 </script>
 
 <style>
